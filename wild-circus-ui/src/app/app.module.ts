@@ -3,11 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ActualiteComponent } from './actualite/actualite.component';
-import { AccueilComponent } from './accueil/accueil.component';
-import { PlanningComponent } from './planning/planning.component';
-import { BilleterieComponent } from './billeterie/billeterie.component';
-import { AdminComponent } from './admin/admin.component';
+
+import { FooterComponent } from './core/footer/footer.component';
+import { HeaderComponent } from './core/header/header.component';
+import { ActualiteComponent } from './features/actualite/actualite.component';
+import { AccueilComponent } from './features/accueil/accueil.component';
+import { PlanningComponent } from './features/planning/planning.component';
+import { BilleterieComponent } from './features/billeterie/billeterie.component';
+import { AdminComponent } from './features/admin/admin.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,11 +21,15 @@ import { AdminComponent } from './admin/admin.component';
     AccueilComponent,
     PlanningComponent,
     BilleterieComponent,
-    AdminComponent
+    AdminComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,7 +15,7 @@ router.post('/actualites', (req, res) =>{
     const formData = req.body;
     db.query("INSERT INTO Actualités SET ?", formData, (err, results) => {
         if(err){
-            res.status(500).send(`Erreur lors de la créatiion d'une actualité`);
+            res.status(500).send(`Erreur lors de la création d'une actualité`);
             return;
         }
         if (!results) {
