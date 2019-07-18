@@ -7,3 +7,10 @@
 .card-title{
     margin-left: 80px;
 }
+.card-body{
+    background-image: url('/assets/images/Red.jpg');
+    border: 0px;
+}
+*, ::after, ::before{
+    border:none;
+}
