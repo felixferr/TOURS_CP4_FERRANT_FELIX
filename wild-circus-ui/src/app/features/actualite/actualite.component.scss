@@ -5,7 +5,7 @@
     height: 350px;
 }
 .card-title{
-    margin-left: 80px;
+    margin-left: 40px;
 }
 .card-body{
     background-image: url('/assets/images/Red.jpg');
@@ -13,4 +13,14 @@
 }
 *, ::after, ::before{
     border:none;
+}
+
+h5{
+    color:#DF6B10;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+p {
+    color:#F9A805;
+    font-family: 'Oswald', sans-serif;
+    font-size:18px;
 }
