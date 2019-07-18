@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActualiteService } from 'src/app/core/service/actualite.service';
+import { Actualite } from 'src/app/core/model/actualite.model';
 
 @Component({
   selector: 'app-actualite',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActualiteComponent implements OnInit {
 
-  constructor() { }
+
+  public actualites;
+
+
+  constructor(private actualiteService: ActualiteService) { }
 
   ngOnInit() {
+    this.actualiteService.getActus().subscribe((actualites: Actualite) => {
+      this.actualites = actualites;
+      console.log(this.actualites)
+    })
   }
+
 
 }

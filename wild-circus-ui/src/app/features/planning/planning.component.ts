@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PlanningService } from 'src/app/core/service/planning.service';
+import { Planning } from 'src/app/core/model/planning.model';
 
 @Component({
   selector: 'app-planning',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanningComponent implements OnInit {
 
-  constructor() { }
+  constructor(private planningService: PlanningService) { }
 
+  public planning: Planning;
+  public plannings;
   ngOnInit() {
+    this.planningService.getPlannings().subscribe((plannings: Planning) => {
+      this.plannings = plannings;
+    })
   }
 
 }

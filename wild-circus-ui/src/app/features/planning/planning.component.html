@@ -1,1 +1,67 @@
-<p>planning works!</p>
+<h1 class="title">Planning</h1>
+<div class="container-fluid plannings-bloc">
+  <div class="row offset-2">
+    <ng-container class="col-md-4 col-sm-12" *ngFor="let planning of plannings; let idx = index">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title text-color">{{planning.name}}</h5>
+          <p class="card-text text-color">{{planning.state}}</p>
+          <p class="card-text text-color">{{planning.hours}}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>
+        <span class="day">1</span>
+        <span class="long">Monday</span>
+        <span class="short">Mon</span>
+      </th>
+      <th>
+        <span class="day">2</span>
+        <span class="long">Tuesday</span>
+        <span class="short">Tue</span>
+      </th>
+      <th>
+        <span class="day">3</span>
+        <span class="long">Wendsday</span>
+        <span class="short">We</span>
+      </th>
+      <th>
+        <span class="day">4</span>
+        <span class="long">Thursday</span>
+        <span class="short">Thur</span>
+      </th>
+      <th>
+        <span class="day active">5</span>
+        <span class="long">Friday</span>
+        <span class="short">Fri</span>
+      </th>
+      <th>
+        <span class="day">6</span>
+        <span class="long">Saturday</span>
+        <span class="short">Sat</span>
+      </th>
+      <th>
+        <span class="day">7</span>
+        <span class="long">Sunday</span>
+        <span class="short">Sun</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="hour" rowspan="4"><span>1:00</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>

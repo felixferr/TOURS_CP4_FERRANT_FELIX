@@ -1,1 +1,14 @@
-<p>actualite works!</p>
+<div class="container-fluid actualites-bloc">
+  <div class="row offset-2">
+    <ng-container class="col-md-4 col-sm-12" *ngFor="let actualite of actualites; let idx = index">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title text-color">{{actualite.title}}</h5>
+          <p class="card-text text-color">{{actualite.contenu}}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+      
+   

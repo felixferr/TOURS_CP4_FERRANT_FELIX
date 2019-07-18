@@ -1,7 +1,18 @@
 .navbar-nav  {
     display: flex;
     justify-content: space-around;
+    position: relative;
+    margin-left: 280px;
+
   }
 
+a:hover{
+  text-decoration: none;
+  color: grey;
+  
+}
+a{
+  color:black;
+}
 
   

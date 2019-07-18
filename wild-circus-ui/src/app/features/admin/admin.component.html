@@ -1,1 +1,64 @@
-<p>admin works!</p>
+<h1 class="title">Ajout d'articles dans actualités</h1>
+<div class="container-fluid">
+    <div class="row">
+    <form class="offset-3 offset-md-5" (ngSubmit)="createActu(newActu)" #newActu="ngForm">
+    <div>
+    <input  type='text' placeholder="Titre" name="title" #title="ngModel" [ngModel]>
+    </div>
+<div>
+<input class="texte" type='text'  name="contenu" #contenu="ngModel" [ngModel]>
+</div>
+<button class='btn btn-success' type="submit" >Enregistrer l'article</button>
+</form>
+</div>
+</div>
+
+<h1 class="title">Articles</h1>
+<div class="container-fluid actualites-bloc">
+  <div class="d-flex align-content-start flex-wrap">
+    <ng-container class="col-md-4 col-sm-12" *ngFor="let actualite of actualites; let idx = index">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title text-color">{{actualite.title}}</h5>
+          <p class="card-text text-color">{{actualite.contenu}}</p>
+          <button class="btn btn-danger btn-sm mr-2" type="bouton" (click)="deleteActu(actualite.id, idx)">Supprimer</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<h1 class="title">Ajouter un créneau</h1>
+<div class="container-fluid">
+    <div class="row">
+    <form class="offset-3 offset-md-5" (ngSubmit)="createPlanning(newPlanning)" #newPlanning="ngForm">
+    <div class="betw">
+    <input type='text' placeholder="name" name="name" #name="ngModel" [ngModel]>
+    </div>
+<div class="betw">
+<input type='text' placeholder="state" name="state" #state="ngModel" [ngModel]>
+</div>
+<div class="betw">
+    <input type='text' placeholder="hours" name="hours" #hours="ngModel" [ngModel]>
+    </div>
+<button class='btn btn-success' type="submit" >Enregistrer le créneau</button>
+</form>
+</div>
+</div>
+
+<h1 class="title">Planning</h1>
+<div class="container-fluid plannings-bloc">
+  <div class="row offset-2">
+    <ng-container class="col-md-4 col-sm-12" *ngFor="let planning of plannings; let idx = index">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title text-color">{{planning.name}}</h5>
+          <p class="card-text text-color">{{planning.state}}</p>
+          <p class="card-text text-color">{{planning.hours}}</p>
+          <button class="btn btn-danger btn-sm mr-2" type="bouton" (click)="deletePlanning(planning.id, idx)">Supprimer</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
