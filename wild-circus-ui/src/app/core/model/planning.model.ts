@@ -4,4 +4,5 @@ export class Planning {
     name: string;
     state: string;
     hours: string;
+    jours:string;
 }

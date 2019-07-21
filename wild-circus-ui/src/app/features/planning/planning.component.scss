@@ -5,3 +5,45 @@
 *, ::after, ::before{
     border:none;
 }
+*{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+  }
+  
+  body{
+    background: rgb(240, 240, 240);
+  }
+  
+  .week{
+    display: flex;
+    flex-wrap: wrap;
+    background: green;
+    width: 1200px;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: 0 0 30px 0 rgb(170, 170, 170);
+    transition: 0.4s;
+  }
+  
+  .day{
+    display: inline-flex;
+    position: relative;
+    flex: 1 1 auto;
+    background: red;
+    text-align: center;
+    height: 400px;
+    background: linear-gradient(90deg, rgb(230, 230, 230), rgb(240, 240, 240));
+    cursor: pointer;
+    overflow: hidden;
+  
+  }
+  
+  
+  .day-name{
+    position: absolute;
+    text-transform: uppercase;
+    left: 15px;
+    top: 10px;
+    color: rgb(60, 60, 60);
+  }
+  

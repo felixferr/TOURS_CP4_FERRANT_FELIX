@@ -8,15 +8,20 @@ import { Planning } from 'src/app/core/model/planning.model';
   styleUrls: ['./planning.component.scss']
 })
 export class PlanningComponent implements OnInit {
-
   constructor(private planningService: PlanningService) { }
 
-  public planning: Planning;
+  public planning: Planning[] = [];
   public plannings;
   ngOnInit() {
     this.planningService.getPlannings().subscribe((plannings: Planning) => {
       this.plannings = plannings;
-    })
+      console.log(plannings);
+    });
   }
-
+  
+    day = this.plannings.filter(function(plannings){
+        return plannings.jours == "Lundi";
+        
+   });
+  
 }

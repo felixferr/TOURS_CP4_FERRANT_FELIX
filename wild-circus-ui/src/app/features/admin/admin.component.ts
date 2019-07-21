@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { ActualiteService } from "src/app/core/service/actualite.service";
 import { Actualite } from "src/app/core/model/actualite.model";
 import { PlanningService } from 'src/app/core/service/planning.service';
@@ -12,6 +12,9 @@ import { Billeterie } from 'src/app/core/model/billleterie.model';
   styleUrls: ["./admin.component.scss"]
 })
 export class AdminComponent implements OnInit {
+
+
+  
   constructor(private actualiteService: ActualiteService, private planningService: PlanningService, private billeterieService: BilleterieService) {}
 
   public actualite: Actualite;

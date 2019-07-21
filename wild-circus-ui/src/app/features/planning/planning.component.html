@@ -1,4 +1,3 @@
-<h1 class="title">Planning</h1>
 <div class="container-fluid plannings-bloc">
   <div class="row offset-2">
     <ng-container class="col-md-4 col-sm-12" *ngFor="let planning of plannings; let idx = index">
@@ -6,6 +5,7 @@
         <div class="card-body">
           <h5 class="card-title text-color">{{planning.name}}</h5>
           <p class="card-text text-color">{{planning.state}}</p>
+          <p class="card-text text-color">{{planning.jours}}</p>
           <p class="card-text text-color">{{planning.hours}}</p>
         </div>
       </div>
@@ -13,3 +13,34 @@
   </div>
 </div>
 
+<div>
+  <div class="week">
+    <div class="day">
+      <div class="day-name">{{day}} </div>
+    </div>
+    <div class="day">
+      <div class="day-name">Mardi</div>
+      <div class="day-num"></div>
+    </div>
+    <div class="day">
+      <div class="day-name">Mercredi</div>
+      <div class="day-num"></div>
+    </div>
+    <div class="day">
+      <div class="day-name">Jeudi</div>
+      <div class="day-num"></div>
+    </div>
+    <div class="day">
+      <div class="day-name">Vendredi</div>
+      <div class="day-num"></div>
+    </div>
+    <div class="day">
+      <div class="day-name">Samedi</div>
+      <div class="day-num last"></div>
+    </div>
+    <div class="day">
+      <div class="day-name">Dimanche</div>
+      <div class="day-num last"></div>
+    </div>
+  </div>
+</div>
