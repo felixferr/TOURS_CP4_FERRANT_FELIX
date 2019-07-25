@@ -1,27 +1,28 @@
-<div class="container-fluid plannings-bloc">
-  <div class="row offset-2">
-    <ng-container class="col-md-4 col-sm-12" *ngFor="let planning of plannings; let idx = index">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title text-color">{{planning.name}}</h5>
-          <p class="card-text text-color">{{planning.state}}</p>
-          <p class="card-text text-color">{{planning.jours}}</p>
-          <p class="card-text text-color">{{planning.hours}}</p>
-        </div>
-      </div>
-    </ng-container>
-  </div>
-</div>
 
 <div>
   <div class="week">
     <div class="day">
-      <div class="day-name">{{day}} </div>
+        <ng-container class="col-sm-12 my-auto" *ngFor="let monday of mondays; let idx = index">
+            <div class="day-name ">Lundi </div>
+            <div class="cardmonday " >
+              <div class="card-body ">
+          <p class=" text-color">{{monday.name}}</p>
+          <p class="text-color">{{monday.hours}}</p>
+          <button [routerLink]="['/billetterie', monday.id]" class="btn btn-danger btn-sm mr-2" type="bouton" >Je réserve {{ selectedValue }}</button>
     </div>
-    <div class="day">
-      <div class="day-name">Mardi</div>
-      <div class="day-num"></div>
-    </div>
+            </div>
+            </ng-container>
+            <div class="day">
+                <ng-container class="col-sm-12 my-auto" *ngFor="let tuesday of tuesdays; let idx = index">
+                    <div class="day-name ">Mardi </div>
+                    <div class="cardmonday " >
+                      <div class="card-body ">
+                  <p class=" text-color">{{tuesday.name}}</p>
+                  <p class="text-color">{{tuesday.hours}}</p>
+                  <button [routerLink]="['/billetterie', tuesday.id]" class="btn btn-danger btn-sm mr-2" type="bouton" >Je réserve</button>
+            </div>
+                    </div>
+                    </ng-container>
     <div class="day">
       <div class="day-name">Mercredi</div>
       <div class="day-num"></div>

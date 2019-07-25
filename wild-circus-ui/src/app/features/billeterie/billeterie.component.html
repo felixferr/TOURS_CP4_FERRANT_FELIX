@@ -1,1 +1,21 @@
-<p>billeterie works!</p>
+<ul class="list-group">
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      <p class="card-text">Billet-Enfant (3 à 11 ans)</p>
+      <p class="card-text">Prix: 40 £</p>
+
+      <app-dropdowntoogle (select)="onSelect($event)" ></app-dropdowntoogle>
+     
+    </li>
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      
+      <p class="card-text">Billet-Adulte (+12 ans)</p>
+      <p class="card-text">Prix: 40 £</p>
+
+      <app-dropdowntoogle (select)="onSelect($event)" ></app-dropdowntoogle>
+    </li>
+  </ul>
+  <button (click)="onClick()" type="button" class="btn btn-primary">Ajouter au Panier</button>

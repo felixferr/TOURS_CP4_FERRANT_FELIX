@@ -1,7 +1,8 @@
 const db = require('../db/db');
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const passport = require('passport');
+const jwt = require('jsonwebtoken');    
 const router = express.Router();
 
 router.use(bodyParser.json());
@@ -10,12 +11,13 @@ router.use(bodyParser.urlencoded({
     extended: true
 }));
 
+
 //Créer une actualité
-router.post('/actualites', (req, res) =>{
+router.post('/actualites', (req, res) => {
     const formData = req.body;
     db.query("INSERT INTO Actualités SET ?", formData, (err, results) => {
-        if(err){
-            
+        if (err) {
+
             res.status(500).send(`Erreur lors de la création d'une actualité`);
             return;
         }
@@ -23,7 +25,7 @@ router.post('/actualites', (req, res) =>{
             res.status(400).send();
             return;
         } else {
-            db.query("SELECT * FROM Actualités WHERE id = ?", results.insertId, (err, results) =>{
+            db.query("SELECT * FROM Actualités WHERE id = ?", results.insertId, (err, results) => {
                 if (err) {
                     res.status(500);
                 } else {
@@ -38,17 +40,17 @@ router.post('/actualites', (req, res) =>{
 router.put('/actualites/:id', (req, res) => {
     const id = req.params.id;
     const formData = req.body;
-    db.query('UPDATE Actualités SET ? WHERE id = ?',[formData,id], err => {
-        if(err){
+    db.query('UPDATE Actualités SET ? WHERE id = ?', [formData, id], err => {
+        if (err) {
             console.log(err)
             res.status(500).send('Erreur lors de la modification');
         } if (!results) {
             res.status(400).send();
         }
-        
+
         else {
             db.query('SELECT * FROM Actualités WHERE id = ?', id, err => {
-                if(err){
+                if (err) {
                     res.status(500).send();
                 } else {
                     res.status(201).send(results[0]);
@@ -62,7 +64,7 @@ router.put('/actualites/:id', (req, res) => {
 router.delete('/actualites/:id', (req, res) => {
     const id = req.params.id;
     db.query('DELETE FROM Actualités WHERE id = ?', id, err => {
-        if(err){
+        if (err) {
             console.log(err)
             res.status(500).send(`Erreur lors de la suppression d'une actualité`);
         } else {
@@ -71,9 +73,9 @@ router.delete('/actualites/:id', (req, res) => {
     })
 });
 // Consulter les actualites
-router.get('/actualites' , (req, res) => {
+router.get('/actualites', (req, res) => {
     db.query('SELECT * FROM Actualités', (err, results) => {
-        if(err){
+        if (err) {
             res.status(500).send('Erreur lors de la récupération des actualités');
         } else {
             res.status(200).json(results);
@@ -83,10 +85,10 @@ router.get('/actualites' , (req, res) => {
 
 
 //Créer une date 
-router.post('/plannings', (req, res) =>{
+router.post('/plannings', (req, res) => {
     const formData = req.body;
     db.query("INSERT INTO Planning SET ?", formData, (err, results) => {
-        if(err){
+        if (err) {
             console.log(err)
             res.status(500).send(`Erreur lors de la création d'un planning`);
             return;
@@ -95,7 +97,7 @@ router.post('/plannings', (req, res) =>{
             res.status(400).send();
             return;
         } else {
-            db.query("SELECT * FROM Planning WHERE id = ?", results.insertId, (err, results) =>{
+            db.query("SELECT * FROM Planning WHERE id = ?", results.insertId, (err, results) => {
                 if (err) {
                     res.status(500);
                 } else {
@@ -109,7 +111,7 @@ router.post('/plannings', (req, res) =>{
 router.delete('/plannings/:id', (req, res) => {
     const id = req.params.id;
     db.query('DELETE FROM Planning WHERE id = ?', id, err => {
-        if(err){
+        if (err) {
             console.log(err)
             res.status(500).send(`Erreur lors de la suppression d'une date du planning`);
         } else {
@@ -119,9 +121,9 @@ router.delete('/plannings/:id', (req, res) => {
 });
 
 // Consulter les dates du planning
-router.get('/plannings' , (req, res) => {
+router.get('/plannings', (req, res) => {
     db.query('SELECT * FROM Planning', (err, results) => {
-        if(err){
+        if (err) {
             res.status(500).send('Erreur lors de la récupération des plannings');
         } else {
             res.status(200).json(results);
@@ -130,10 +132,10 @@ router.get('/plannings' , (req, res) => {
 });
 
 // Creer un billet
-router.post('/billeteries', (req, res) =>{
+router.post('/billeteries', (req, res) => {
     const formData = req.body;
     db.query("INSERT INTO billet SET ?", formData, (err, results) => {
-        if(err){
+        if (err) {
             console.log(err)
             res.status(500).send(`Erreur lors de la création d'un billet`);
             return;
@@ -142,7 +144,7 @@ router.post('/billeteries', (req, res) =>{
             res.status(400).send();
             return;
         } else {
-            db.query("SELECT * FROM billet WHERE id = ?", results.insertId, (err, results) =>{
+            db.query("SELECT * FROM billet WHERE id = ?", results.insertId, (err, results) => {
                 if (err) {
                     res.status(500);
                 } else {
@@ -156,7 +158,7 @@ router.post('/billeteries', (req, res) =>{
 router.delete('/billeteries/:id', (req, res) => {
     const id = req.params.id;
     db.query('DELETE FROM billet WHERE id = ?', id, err => {
-        if(err){
+        if (err) {
             console.log(err)
             res.status(500).send(`Erreur lors de la suppression d'un billet`);
         } else {
@@ -166,14 +168,16 @@ router.delete('/billeteries/:id', (req, res) => {
 });
 
 // Consulter les dates du planning
-router.get('/billeteries' , (req, res) => {
+router.get('/billeteries', (req, res) => {
     db.query('SELECT * FROM billet', (err, results) => {
-        if(err){
+        if (err) {
             res.status(500).send('Erreur lors de la récupération des billeteries');
         } else {
             res.status(200).json(results);
         }
     })
 });
+
+
 
 module.exports = router;

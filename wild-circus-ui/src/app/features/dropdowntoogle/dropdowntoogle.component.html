@@ -1,0 +1,32 @@
+<div ngbDropdown class="d-inline-block">
+        <button
+          class="btn btn-outline-primary"
+          id="dropdownBasic1"
+          ngbDropdownToggle
+        >
+          {{ selectedValue }}
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem (click)="changeDropdownName('0')">
+            0
+          </button>
+          <button ngbDropdownItem (click)="changeDropdownName('1')">
+            1
+          </button>
+          <button ngbDropdownItem (click)="changeDropdownName('2')">
+            2
+          </button>
+          <button ngbDropdownItem (click)="changeDropdownName('3')">
+            3
+          </button>
+          <button ngbDropdownItem (click)="changeDropdownName('4')">
+            4
+          </button>
+          <button ngbDropdownItem (click)="changeDropdownName('5')">
+            5
+          </button>
+          <button ngbDropdownItem (click)="changeDropdownName('6')">
+            6
+          </button>
+        </div>
+      </div>
