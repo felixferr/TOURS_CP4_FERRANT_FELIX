@@ -26,6 +26,7 @@ export class BilleterieComponent implements OnInit {
   }
   onClick(event){
     this.panier.add(this.id, this.horaire, this.personne);
-    // this.router.navigateByUrl("login");
+    this.panier.add(this.id, this.horaire, this.personne);
+    this.router.navigateByUrl("login");
   }
 }

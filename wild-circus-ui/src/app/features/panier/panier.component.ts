@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
+import { PanierService } from 'src/app/core/service/panier.service';
 
 @Component({
   selector: 'app-panier',
@@ -8,7 +9,7 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 export class PanierComponent implements OnInit {
   panier: EventEmitter<boolean> = new EventEmitter();
 
-  constructor() { }
+  constructor(public panierService: PanierService) { }
 
   ngOnInit() {
   }
