@@ -7,6 +7,7 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 })
 export class PanierComponent implements OnInit {
   panier: EventEmitter<boolean> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {

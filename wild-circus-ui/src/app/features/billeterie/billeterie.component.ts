@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { PanierService } from 'src/app/core/service/panier.service';
 
 @Component({
   selector: 'app-billeterie',
@@ -8,9 +9,14 @@ import { Router } from '@angular/router';
 })
 export class BilleterieComponent implements OnInit {
   toogledrop: EventEmitter<boolean> = new EventEmitter();
-  constructor(private router: Router,) { }
-
+  constructor(private panier: PanierService, private activatedRoute: ActivatedRoute, private router: Router,) { }
+  id: string;
+  horaire: any;
+  personne:any;
   ngOnInit() {
+    this.activatedRoute.paramMap.subscribe((param: ParamMap) => {
+      this.id = param.get('id');
+    });
   }
   
   onSelect(event){
@@ -18,7 +24,8 @@ export class BilleterieComponent implements OnInit {
    console.log(event)
    
   }
-  onClick(){
-    this.router.navigateByUrl("login");
+  onClick(event){
+    this.panier.add(this.id, this.horaire, this.personne);
+    // this.router.navigateByUrl("login");
   }
 }
